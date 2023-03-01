@@ -37,6 +37,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -45,7 +46,6 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -130,6 +130,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фигуры";
             // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(7, 158);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(90, 17);
+            this.radioButton7.TabIndex = 6;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "Треугольник";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
@@ -212,17 +223,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Передвинуть";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(7, 158);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(90, 17);
-            this.radioButton7.TabIndex = 6;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Треугольник";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 

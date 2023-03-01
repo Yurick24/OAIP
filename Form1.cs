@@ -14,6 +14,7 @@ namespace OAIP_Laba2
 {
     public partial class Form1 : Form
     {
+        
         public static class Init
         {
             public static Bitmap bitmap;
@@ -99,6 +100,58 @@ namespace OAIP_Laba2
             pictureBox1.Refresh();
             comboBox2.Items.Clear();
             comboBox2.Refresh();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                Rectangle rectangle = new Rectangle
+                    (int.Parse(textBox1.Text),
+                    int.Parse(textBox2.Text),
+                    int.Parse(textBox3.Text),
+                    int.Parse(textBox4.Text));
+                ShapeContainer.AddFigure(rectangle);
+                comboBox2.Items.Clear();
+                try
+                {
+                    foreach (Figure figure in ShapeContainer.figureList)
+                    {
+                        comboBox2.Items.Add(figure);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                rectangle.Draw();
+                Init.pictureBox.Image = Init.bitmap;
+            }
+            if (radioButton2.Checked)
+            {
+
+            }
+            if (radioButton3.Checked)
+            {
+
+            }
+            if (radioButton4.Checked)
+            {
+
+            }
+            if (radioButton5.Checked)
+            {
+
+            }
+            if (radioButton6.Checked)
+            {
+
+            }
+            if (radioButton7.Checked)
+            {
+
+            }
         }
     }
 }
