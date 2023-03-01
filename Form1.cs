@@ -71,6 +71,25 @@ namespace OAIP_Laba2
                 Circle11.Draw();
                 Init.pictureBox.Image = Init.bitmap;
             }
+            if (radioButton5.Checked)
+            {
+                
+            }
+            if (radioButton6.Checked)
+            {
+                Graphics g = Graphics.FromImage(Init.bitmap);
+                Bur2000 bur2000 = new Bur2000(int.Parse(textBox1.Text),
+                int.Parse(textBox2.Text),
+                int.Parse(textBox3.Text), int.Parse(textBox4.Text));
+                bur2000.Draw();
+                Init.pictureBox.Image = Init.bitmap;
+            }
+            if (radioButton7.Checked)
+            {
+                
+            }
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)

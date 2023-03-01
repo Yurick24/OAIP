@@ -78,7 +78,7 @@ namespace OAIP_Laba2
             {
                 figure.x += x;
                 figure.y += y;
-                //figure.DeleteF(this, false);
+                figure.DeleteF(this, false);
                 figure.Draw();
             }
         }
