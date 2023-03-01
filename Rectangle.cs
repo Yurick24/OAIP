@@ -91,8 +91,6 @@ namespace OAIP_Laba2
             }
         }
     }
-
-
     internal class Rectangle1 : Rectangle
     {
         public Rectangle1(int x, int y, int w) : base(x, y, w, w)
