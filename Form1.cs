@@ -78,6 +78,8 @@ namespace OAIP_Laba2
             Graphics g = Graphics.FromImage(Init.bitmap);
             g.Clear(Color.White);
             pictureBox1.Refresh();
+            comboBox2.Items.Clear();
+            comboBox2.Refresh();
         }
     }
 }

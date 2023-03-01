@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace OAIP_Laba2
 {
-   /* internal class ShapeContainer11
+    public class ShapeContainer
     {
-        
-    }*/
+        public static List<Figure> figureList;
+        public ShapeContainer()
+        {
+            figureList = new List<Figure>();
+        }
+        public static void AddFigure(Figure figure)
+        {
+            figureList.Add(figure);
+        }
+    }
 }
