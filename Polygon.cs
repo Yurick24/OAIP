@@ -5,45 +5,147 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static OAIP_Laba2.Form1;
+using Figures;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace OAIP_Laba2
 {
     internal class Polygon : Figure
     {
-        public Polygon(int x, int y, int w, int h)
+        Bitmap bitmap;
+        PointF[] point;
+        int numVertices;
+        Triangle triangle;
+        public Polygon(PointF[] point)
         {
-            this.x = x;
-            this.y = y;
-            this.w = w;
+            this.point = point;
         }
-        public Polygon()
+
+        public override void Draw()
         {
-            this.x = 0;
-            this.y = 0;
-            this.w = 0;
+            Graphics g = Graphics.FromImage(Init.bitmap);
+            g.DrawPolygon(Init.pen, point);
+            Init.pictureBox.Image = Init.bitmap;
+        }
+
+        Figure figure;
+        public override void MoveTo(int x, int y)
+        {
+            bool mnog = false;
+            try
+            {
+                for (int j = 0; j < point.Length; j++)
+                {
+                    if (!((this.point[j].X + x < 0 && this.point[j].Y + y < 0)
+                     || (this.point[j].Y + y < 0)
+                     || (this.point[j].X + x > Init.pictureBox.Width && this.point[j].Y + y < 0)
+                     || (this.point[j].X + this.w + x > Init.pictureBox.Width)
+                     || (this.point[j].X + x > Init.pictureBox.Width && this.point[j].Y + y > Init.pictureBox.Height)
+                     || (this.point[j].Y + this.h + y > Init.pictureBox.Height)
+                     || (this.point[j].X + x < 0 && this.point[j].Y + y > Init.pictureBox.Height) || (this.point[j].X + x < 0)))
+                    {
+                        mnog = true;
+                    }
+                    else
+                    {
+                        mnog = false;
+                        break;
+                    }
+                }
+                if (mnog)
+                {
+                    for (int i = 0; i < point.Length; i++)
+                    {
+                        point[i].X += x;
+                        point[i].Y += y;
+                    }
+                }
+
+                Graphics g = Graphics.FromImage(Init.bitmap);
+                Figures.ShapeContainer.RemoveFigure(figure);
+
+                g.Clear(Color.White);
+
+                Init.pictureBox.Image = Init.bitmap;
+                foreach (Figure f in Figures.ShapeContainer.figureList)
+                {
+                    f.Draw();
+                }
+                Figures.ShapeContainer.AddFigure(figure);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
+    class Triangle : Polygon
+    {
+        PointF[] point;
+        Triangle triangle;
+        Polygon polygon;
+        Pen pen;
+        Figure figure;
+
+        public Triangle(PointF[] point) : base(point)
+        {
+            this.point = point;
         }
         public override void Draw()
         {
             Graphics g = Graphics.FromImage(Init.bitmap);
-            //g.DrawPolygon(Init.pen, this.x, this.y);
+            g.DrawPolygon(Init.pen, point);
             Init.pictureBox.Image = Init.bitmap;
-            /*while (i != n) { }
-            int i;*/
         }
+
         public override void MoveTo(int x, int y)
         {
-            if (!((this.x + x < 0 && this.y + y < 0)
-                || (this.y + y < 0)
-                || (this.x + x > Init.pictureBox.Width && this.y + y < 0)
-                || (this.x + this.w + x > Init.pictureBox.Width)
-                || (this.x + x > Init.pictureBox.Width && this.y + y > Init.pictureBox.Height)
-                || (this.y + this.w + y > Init.pictureBox.Height)
-                || (this.x + x < 0 && this.y + y > Init.pictureBox.Height) || (this.x + x < 0)))
+            bool mnog = false;
+            try
             {
-                this.x += x;
-                this.y += y;
-                this.DeleteF(false);
-                this.Draw();
+                for (int j = 0; j < point.Length; j++)
+                {
+                    if (!((this.point[j].X + x < 0 && this.point[j].Y + y < 0)
+                     ||(this.point[j].Y + y < 0)
+                     ||(this.point[j].X + x > Init.pictureBox.Width && this.point[j].Y + y < 0)
+                     ||(this.point[j].X + this.w + x > Init.pictureBox.Width)
+                     ||(this.point[j].X + x > Init.pictureBox.Width && this.point[j].Y + y > Init.pictureBox.Height)
+                     ||(this.point[j].Y + this.h + y > Init.pictureBox.Height)
+                     ||(this.point[j].X + x < 0 && this.point[j].Y + y > Init.pictureBox.Height) || (this.point[j].X + x < 0)))
+                    {
+                        mnog = true;
+                    }
+                    else
+                    {
+                        mnog = false;
+                        break;
+                    }
+                }
+                if (mnog)
+                {
+                    for (int i = 0; i < point.Length; i++)
+                    {
+                        point[i].X += x;
+                        point[i].Y += y;
+                    }
+                }
+
+                Graphics g = Graphics.FromImage(Init.bitmap);
+                Figures.ShapeContainer.RemoveFigure(figure);
+
+                g.Clear(Color.White);
+
+                Init.pictureBox.Image = Init.bitmap;
+                foreach (Figure f in Figures.ShapeContainer.figureList)
+                {
+                    f.Draw();
+                }
+                Figures.ShapeContainer.AddFigure(figure);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

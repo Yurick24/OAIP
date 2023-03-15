@@ -4,13 +4,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Madara;
 using static OAIP_Laba2.Form1;
+using Figures;
 
 namespace OAIP_Laba2
 {
     internal class Circle11 : Elips
     {
+        Figure figure;
         public Circle11(int x, int y, int w)
         {
             this.x = x;
@@ -36,13 +37,22 @@ namespace OAIP_Laba2
                 || (this.x + x > Init.pictureBox.Width && this.y + y < 0)
                 || (this.x + this.w + x > Init.pictureBox.Width)
                 || (this.x + x > Init.pictureBox.Width && this.y + y > Init.pictureBox.Height)
-                || (this.y + this.w + y > Init.pictureBox.Height)
+                || (this.y + this.h + y > Init.pictureBox.Height)
                 || (this.x + x < 0 && this.y + y > Init.pictureBox.Height) || (this.x + x < 0)))
             {
                 this.x += x;
                 this.y += y;
-                //this.DeleteF(false);
-                this.Draw();
+                Graphics g = Graphics.FromImage(Init.bitmap);
+                Figures.ShapeContainer.RemoveFigure(figure);
+
+                g.Clear(Color.White);
+
+                Init.pictureBox.Image = Init.bitmap;
+                foreach (Figure f in Figures.ShapeContainer.figureList)
+                {
+                    f.Draw();
+                }
+                Figures.ShapeContainer.AddFigure(figure);
             }
         }
     }

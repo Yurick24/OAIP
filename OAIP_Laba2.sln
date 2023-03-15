@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAIP_Laba2", "OAIP_Laba2.csproj", "{98756114-38D8-48C4-8335-4010BF1731BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Madara", "..\Madara\Madara.csproj", "{1DE4889D-1156-4FCB-9A91-7B96A2D8B134}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figures", "..\Figure\Figures.csproj", "{AAC0E539-E798-4F58-A44D-07B7B034D0D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{98756114-38D8-48C4-8335-4010BF1731BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98756114-38D8-48C4-8335-4010BF1731BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98756114-38D8-48C4-8335-4010BF1731BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DE4889D-1156-4FCB-9A91-7B96A2D8B134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DE4889D-1156-4FCB-9A91-7B96A2D8B134}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DE4889D-1156-4FCB-9A91-7B96A2D8B134}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DE4889D-1156-4FCB-9A91-7B96A2D8B134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC0E539-E798-4F58-A44D-07B7B034D0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC0E539-E798-4F58-A44D-07B7B034D0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC0E539-E798-4F58-A44D-07B7B034D0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC0E539-E798-4F58-A44D-07B7B034D0D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

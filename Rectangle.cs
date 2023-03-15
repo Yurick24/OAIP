@@ -5,24 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Madara;
 using static OAIP_Laba2.Form1;
+using Figures;
 
 namespace OAIP_Laba2
 {
-
-    class ShapeContainer11
-    {
-        public static List<Figure> figureList;
-        public ShapeContainer11()
-        {
-            figureList = new List<Figure>();
-        }
-        public static void AddFigure(Figure figure)
-        {
-            figureList.Add(figure);
-        }
-    }
     class Rectangle : Figure
     {
         public Rectangle(int x, int y, int w, int h)
@@ -46,48 +33,30 @@ namespace OAIP_Laba2
             Init.pictureBox.Image = Init.bitmap;
         }
 
-        
-
-
-        public void DeleteF(Figure figure, bool flag = true)
-        {
-            if (flag == true)
-            {
-                Graphics g = Graphics.FromImage(Init.bitmap);
-                ShapeContainer11.figureList.Remove(figure);
-                Init.pictureBox.Image = Init.bitmap;
-                foreach (Figure f in ShapeContainer11.figureList)
-                {
-                    f.Draw();
-                }
-            } else
-            {
-                Graphics g = Graphics.FromImage(Init.bitmap);
-                ShapeContainer11.figureList.Remove(figure);
-                Init.pictureBox.Image = Init.bitmap;
-                foreach (Figure f in ShapeContainer11.figureList)
-                {
-                    f.Draw();
-                }
-                ShapeContainer11.figureList.Add(figure);
-    }
-}
-
         Figure figure;
         public override void MoveTo(int x, int y)
         {
-            if (!((figure.x + x < 0 && this.y + y < 0)
-                || (figure.y + y < 0)
-                || (figure.x + x > Init.pictureBox.Width && this.y + y < 0)
-                || (figure.x + this.w + x > Init.pictureBox.Width)
-                || (figure.x + x > Init.pictureBox.Width && this.y + y > Init.pictureBox.Height)
-                || (figure.y + this.h + y > Init.pictureBox.Height)
-                || (figure.x + x < 0 && this.y + y > Init.pictureBox.Height) || (this.x + x < 0)))
+            if (!((this.x + x < 0 && this.y + y < 0)
+                || (this.y + y < 0)
+                || (this.x + x > Init.pictureBox.Width && this.y + y < 0)
+                || (this.x + this.w + x > Init.pictureBox.Width)
+                || (this.x + x > Init.pictureBox.Width && this.y + y > Init.pictureBox.Height)
+                || (this.y + this.h + y > Init.pictureBox.Height)
+                || (this.x + x < 0 && this.y + y > Init.pictureBox.Height) || (this.x + x < 0)))
             {
-                figure.x += x;
-                figure.y += y;
-                figure.DeleteF(this, false);
-                figure.Draw();
+                this.x += x;
+                this.y += y;
+                Graphics g = Graphics.FromImage(Init.bitmap);
+                Figures.ShapeContainer.RemoveFigure(figure);
+
+                g.Clear(Color.White);
+
+                Init.pictureBox.Image = Init.bitmap;
+                foreach (Figure f in Figures.ShapeContainer.figureList)
+                {
+                    f.Draw();
+                }
+                Figures.ShapeContainer.AddFigure(figure);
             }
         }
     }
