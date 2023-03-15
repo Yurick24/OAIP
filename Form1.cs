@@ -431,5 +431,15 @@ namespace OAIP_Laba2
             textBox4.Visible = true;
             textBox4.Enabled = true;
         }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox1.Visible = false;
+        }
+
+        private void radioButton9_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox1.Visible = true;
+        }
     }
 }
